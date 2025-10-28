@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --font-scale: 1;
+}
+
+body {
+  @apply bg-background text-white font-sans antialiased;
+  font-size: calc(var(--font-scale) * 16px);
+}
+
+body[data-high-contrast='true'] {
+  @apply bg-black text-white;
+}
+
+body[data-high-contrast='true'] .glass {
+  @apply border-white/40 bg-white/10;
+}
+
+* {
+  @apply selection:bg-accent/20 selection:text-white;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.smooth-transition {
+  transition: all 180ms ease;
+}
